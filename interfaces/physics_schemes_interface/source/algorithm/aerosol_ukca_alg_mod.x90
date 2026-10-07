@@ -127,6 +127,8 @@ contains
     use msat_kernel_mod,               only: msat_kernel_type
     use photol_diags_kernel_mod,       only: photol_diags_kernel_type
 
+    use initialise_diagnostics_mod,    only : init_diag => init_diagnostic_field
+
     implicit none
 
     ! -- Arguments --
@@ -147,6 +149,8 @@ contains
     class(model_clock_type), intent(in) :: model_clock
 
     ! -- Local variables --
+    type( field_type ) :: total_dust_mmr
+    logical( l_def ) :: total_dust_mmr_flag
 
     ! Temporary unpacked fields from collections
 
@@ -1659,6 +1663,9 @@ contains
       call pvol_om_ait_ins%write_field('aerosol__pvol_om_ait_ins')
       call pvol_du_acc_ins%write_field('aerosol__pvol_du_acc_ins')
       call pvol_du_cor_ins%write_field('aerosol__pvol_du_cor_ins')
+
+      total_dust_mmr_flag = init_diag(total_dust_mmr, 'aerosol__total_dust_mmr')
+      if (total_dust_mmr_flag) call total_dust_mmr%write_field()
 
       if ( LPROF ) call stop_timing( id_diags, 'diags.ukca' )
     end if      ! write diag

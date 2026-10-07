@@ -83,6 +83,7 @@
       <field field_ref="aerosol__acc_ins_du" />
       <field field_ref="aerosol__cor_ins_du" />
       <field field_ref="aerosol__cloud_drop_no_conc" />
+      <field field_ref="aerosol__total_dust_mmr" />
     </field_group>
 
     <!-- 2D fields averaged every timestep -->
@@ -200,6 +201,7 @@
       <field field_ref="radiation__warm_cloud_top_re_microns_rts"/>
       <field field_ref="processed__sw_aer_optical_depth_rts"/>
       <field field_ref="processed__lw_aer_optical_depth_rts"/>
+      <field field_ref="aerosol__aod_total_dust"/>
     </field_group>
 
     <!-- Fields averaged every 6 hours  -->

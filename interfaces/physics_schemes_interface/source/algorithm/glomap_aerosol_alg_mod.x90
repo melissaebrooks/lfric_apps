@@ -29,6 +29,8 @@ module glomap_aerosol_alg_mod
   use fs_continuity_mod,               only: Wtheta
   use intermesh_mappings_alg_mod,      only: map_scalar_intermesh
 
+  use initialise_diagnostics_mod,      only : init_diag => init_diagnostic_field
+
   implicit none
 
   private
@@ -65,6 +67,10 @@ contains
     type( field_type ), intent( in ) :: exner_in_wth
     type( field_type ), intent( in ) :: mr_n(nummr)
     integer( kind=i_def ), intent( in ) :: timestep
+
+    ! -- Local variables --
+    type( field_type ) :: total_dust_mmr
+    logical( l_def ) :: total_dust_mmr_flag
 
     ! Temporary unpacked fields from collection cloud_fields
 
@@ -369,7 +375,10 @@ contains
       else
         call cloud_drop_no_conc_aero%write_field('aerosol__cloud_drop_no_conc')
       end if
-
+      
+      total_dust_mmr_flag = init_diag(total_dust_mmr, 'aerosol__total_dust_mmr')
+      if (total_dust_mmr_flag) call total_dust_mmr%write_field()
+      
       if ( LPROF ) call stop_timing( id_diags, 'diags.glomap_clim' )
     end if
 

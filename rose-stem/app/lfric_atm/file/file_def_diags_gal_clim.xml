@@ -22,6 +22,7 @@
       <field field_ref="microphysics__tnuc"/>
       <field field_ref="processed__pressure_in_w3"/>
       <field field_ref="processed__pressure_in_wth"/>
+      <field field_ref="aerosol__total_dust_mmr" />
     </field_group>
 
     <!-- 2D fields averaged every timestep -->
@@ -138,6 +139,7 @@
       <field field_ref="aerosol__aaod_ukca_acc_ins"/>
       <field field_ref="aerosol__aod_ukca_cor_ins"/>
       <field field_ref="aerosol__aaod_ukca_cor_ins"/>
+      <field field_ref="aerosol__aod_total_dust"/>
     </field_group>
 
     <!-- Fields averaged every 6 hours  -->

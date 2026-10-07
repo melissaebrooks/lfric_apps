@@ -245,6 +245,9 @@
   <field id="aerosol__aaod_ukca_acc_ins" name="aaod_ukca_acc_ins" long_name="modal_absorption_aerosol_optical_depth_accumulation_insoluble_mode_radiative_timestep" unit="1" grid_ref="var_face_aod_wavel" />
   <field id="aerosol__aod_ukca_cor_ins"  name="aod_ukca_cor_ins"  long_name="modal_extinction_aerosol_optical_depth_coarse_insoluble_mode_radiative_timestep" unit="1" grid_ref="var_face_aod_wavel" />
   <field id="aerosol__aaod_ukca_cor_ins" name="aaod_ukca_cor_ins" long_name="modal_absorption_aerosol_optical_depth_coarse_insoluble_mode_radiative_timestep" unit="1" grid_ref="var_face_aod_wavel" />
+  <field id="aerosol__aod_total_dust" name="aod_ukca_total_dust" long_name="modal_extinction_aerosol_optical_depth_dust_total_radiative_timestep" unit="1" grid_ref="var_face_aod_wavel" > aerosol__aod_ukca_cor_ins + aerosol__aod_ukca_acc_ins </field>
+  <!-- Dust specific diagnostics -->
+  <field id="aerosol__total_dust_mmr" name="total_dust_mmr" long_name="total_dust_mass_mixing_ratio" unit="kg kg-1" grid_ref="full_level_face_grid" />  
   <!-- Easy Aerosol diagnostics -->
   <field id="aerosol__easy_sw_abs" name="easy_sw_abs" long_name="absorption coefficient of EasyAerosol" unit="m-1" grid_ref="full_level_face_grid_sw_bands" />
   <field id="aerosol__easy_sw_sca" name="easy_sw_sca" long_name="scattering coefficient of EasyAerosol" unit="m-1" grid_ref="full_level_face_grid_sw_bands" />
